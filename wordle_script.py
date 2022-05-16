@@ -23,6 +23,8 @@ def refine_available_words(
     new_list = []
     for i in range(0, len(word_list)):
         temp_word = word_list[i]
+        if temp_word == current_word:
+            continue
         flag = True
         pointer = 0
         while pointer < 5 and flag == True:
