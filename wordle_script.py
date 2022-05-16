@@ -38,7 +38,7 @@ def refine_available_words(
         if flag == True:
             new_list.append(temp_word)
 
-        return new_list, "Holder for best word"
+    return new_list, "Holder for best word"
 
 
 def word_selection():
@@ -57,9 +57,9 @@ while game_won_flag == False and len(chosen_words) < 6:
     color_tracker = []
     for i in current_word:
         if i in random_word:
-            used_white_letters.add(i)
-        else:
             used_non_white_letters.add(i)
+        else:
+            used_white_letters.add(i)
     if current_word == random_word:
         print("You won!")
         game_won_flag = True
@@ -83,6 +83,7 @@ while game_won_flag == False and len(chosen_words) < 6:
             color_tracker,
         )
         print(f"This is the length of word list {len(word_list)}")
+        print(word_list)
         print(
             f"These are the used up letters: {used_white_letters.union(used_non_white_letters)}\n next guess please:"
         )
