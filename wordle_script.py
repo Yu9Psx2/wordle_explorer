@@ -1,6 +1,7 @@
 import pandas as pd
 import random
 from colorama import init, Fore
+from counter_script import lookup_function
 
 init(autoreset=True)
 
@@ -39,8 +40,8 @@ def refine_available_words(
             pointer += 1
         if flag == True:
             new_list.append(temp_word)
-
-    return new_list, "Holder for best word"
+    best_word = lookup_function(new_list)[0]
+    return new_list, best_word
 
 
 def word_selection():
@@ -84,8 +85,7 @@ while game_won_flag == False and len(chosen_words) < 6:
             word_list,
             color_tracker,
         )
-        print(f"This is the length of word list {len(word_list)}")
-        print(word_list)
+        print(f"This is the best_word: {best_word}")
         print(
             f"These are the used up letters: {used_white_letters.union(used_non_white_letters)}\n next guess please:"
         )
