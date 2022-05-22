@@ -5,11 +5,12 @@ from counter_script import lookup_function
 
 
 def start_game(pass_word=None):
+    assert pass_word == None or pass_word.isalpha(), "pass_word is not alpha"
     init(autoreset=True)
     dataframe = pd.read_csv("wordle_words.csv")
 
     word_list = dataframe["Unnamed: 0"].values.tolist()
-
+    original_list = word_list.copy()
     chosen_words = []
     used_white_letters = set()
     used_non_white_letters = set()
@@ -51,12 +52,12 @@ def start_game(pass_word=None):
 
     def word_selection():
         current_word = input("Choose a word: ")
-        while current_word not in word_list:
-            current_word = input("Not a word, choose again: ")
         while current_word.isalpha() == False or len(current_word) != 5:
             current_word = input(
                 "Word needs to be 5 letters and alpha, Choose a word: "
             )
+        while current_word not in original_list:
+            current_word = input("Not a word, choose again: ")
         return current_word
 
     while game_won_flag == False and len(chosen_words) < 6:

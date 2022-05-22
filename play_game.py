@@ -6,3 +6,5 @@ from wordle_script import start_game
 # Right now the game is forcing you to play optimally by forcing to choose words without any used white chars
 
 start_game()
+start_game("fishy")
+start_game("hell5")
