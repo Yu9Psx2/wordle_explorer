@@ -10,4 +10,4 @@ start_game()
 # Start a game with a word that is passed in
 start_game("hinge")
 # Start a game with a word that fails the assert
-start_game("hell5")
+start_game("moustache")

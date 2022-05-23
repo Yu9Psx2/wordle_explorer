@@ -1,5 +1,8 @@
 import pandas as pd
 
+# The lookup_function takes a list of words and compares each word against every other
+# and returns a list of the ten words in descending order that would make the best wordle guess
+
 
 def compare(first_word, second_word):
     yellow_count = 0
