@@ -5,6 +5,9 @@ from wordle_script import start_game
 # I haven't done much with importing my own scripts, but this is a start
 # Right now the game is forcing you to play optimally by forcing to choose words without any used white chars
 
+# Start a game with a random word
 start_game()
-start_game("fishy")
+# Start a game with a word that is passed in
+start_game("hinge")
+# Start a game with a word that fails the assert
 start_game("hell5")
