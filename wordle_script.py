@@ -4,8 +4,11 @@ from colorama import init, Fore
 from counter_script import lookup_function
 
 
-def start_game(pass_word=None):
-    """Starts a game of Wordle. Takes no arguments if the game is played using a random word, otherwise takes a string"""
+def start_game(user_input=True, pass_word=None):
+    """Starts a game of Wordle. 
+    pass_word is a string to pass to play the game using a specified word
+    user_input is a boolean to toggle user_input mode on or off (not yet implemented)
+    """
     assert pass_word == None or pass_word.isalpha(), "pass_word is not alpha"
     if pass_word:
         assert len(pass_word) == 5, "pass_word is not 5 letters long"
@@ -74,7 +77,10 @@ def start_game(pass_word=None):
 
     # This is the while loop for the game
     while game_won_flag == False and len(chosen_words) < 6:
-        current_word = word_selection()
+        if user_input:
+            current_word = word_selection()
+        else:
+            current_word = "Happy" #throw away word for now
         chosen_words.append(current_word)
         build_word = ""
         color_tracker = []
