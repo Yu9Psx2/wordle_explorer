@@ -80,7 +80,10 @@ def start_game(user_input=True, pass_word=None):
         if user_input:
             current_word = word_selection()
         else:
-            current_word = "Happy" #throw away word for now
+            if len(chosen_words) == 0:
+                current_word = "irate"
+            else:
+                current_word = best_word  # throw away word for now
         chosen_words.append(current_word)
         build_word = ""
         color_tracker = []

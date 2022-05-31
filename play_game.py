@@ -9,7 +9,5 @@ from wordle_script import start_game
 start_game()
 # Start a game with a word that is passed in
 start_game(pass_word="hinge")
-
-start_game(user_input=False)
 # Start a game with a word that fails the assert
 start_game(pass_word="moustache")
