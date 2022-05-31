@@ -31,7 +31,6 @@ def start_game(user_input=True, pass_word=None):
         random_word = pass_word
     # Set a flag for the win condition
     game_won_flag = False
-    print(random_word)
 
     def refine_available_words(
         current_word,
@@ -94,7 +93,8 @@ def start_game(user_input=True, pass_word=None):
             else:
                 used_white_letters.add(i)
         if current_word == random_word:
-            print("You won!")
+            if user_input:
+                print("You won!")
             game_won_flag = True
         else:
             # For loop to build a colored string in the terminal for the user
@@ -108,7 +108,6 @@ def start_game(user_input=True, pass_word=None):
                 else:
                     build_word = build_word + Fore.WHITE + current_word[i]
                     color_tracker.append("W")
-            print(f"This is your chosen word {build_word}")
             # Call the function to get an updated list of possible words and a suggesed best_word to use
             word_list, best_word = refine_available_words(
                 current_word,
@@ -117,8 +116,10 @@ def start_game(user_input=True, pass_word=None):
                 word_list,
                 color_tracker,
             )
-            print(f"This is the best_word: {best_word}")
-            print(
-                f"These are the used up letters: {used_white_letters.union(used_non_white_letters)}\n next guess please:"
-            )
-
+            if user_input:
+                print(f"This is your chosen word {build_word}")
+                print(f"This is the best_word: {best_word}")
+                print(
+                    f"These are the used up letters: {used_white_letters.union(used_non_white_letters)}\n next guess please:"
+                )
+    return game_won_flag
